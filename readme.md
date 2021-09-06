@@ -71,3 +71,28 @@ module.exports = {
 ```
 
 When the script imports `react` or `react-dom`, it will use the shared instance of `window.Tangible.Preact`.
+
+
+## WP Element
+
+To use the WP Element module, add an alias for `react`.
+
+This is suitable for scripts used in WordPress admin side only.
+
+In `tangible.config.js`, define the property `alias` to a task configuration. It's a key-value pair of the aliased module name and source.
+
+```js
+module.exports = {
+  build: [
+    {
+      // task, src, dest, watch..
+      alias: {
+        'react': '@tangible/window/wp-element',
+        'react-dom': '@tangible/window/wp-element',
+      }
+    },
+  ]
+}
+```
+
+When the script imports `react` or `react-dom`, it will use the shared instance of `window.wp.element`.
